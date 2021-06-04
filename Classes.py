@@ -12,7 +12,7 @@ seed(1)
     This is a Class definition for the CD player interface
 '''
 class Player:
-    #constructer 
+    #constructor 
     def __init__(self, name):
         self.file_name = name
         self.collection = []
@@ -20,7 +20,8 @@ class Player:
         self.number_added = 0 
         self.number_deleted = 0
 
-    #method for users 
+    #method for users to navigate from menu to desired option
+    #if selection invalid, notify user
     def menu(self, value):
         if value == '1':
             self.play()
@@ -49,9 +50,10 @@ class Player:
             pickle.dump(self.collection, file_out)
 
         
-    '''
-        Method for playing the album selected by user 
-    '''
+    #method for playing track 
+    #displays albums to user and prompts selection with select() method
+    #Once album selected, displays album info
+    #then cycles through tracks within the album, and displays current track to user 
     def play(self):
         #display prompt 
         print("\nPlease select an Album to play\n")
@@ -68,11 +70,12 @@ class Player:
             time.sleep(tracks.time)
 
     
-    '''
-        Method for selecting an album to play 
-    '''
+    #method for selecting album 
+    #displays all albums to user, and prompts selection of an album
+    #if selection does not exist, notify user
+    #else return selected album
     def select(self):
-        #dsplay albums for selection
+        #display albums for selection
         for album in self.collection:
             print(f'{(self.collection.index(album) +1)} : {album.title} by {album.artist}')
         
@@ -85,9 +88,10 @@ class Player:
         return (selected - 1)
         
     
-    '''
-        Method for adding album to collection 
-    '''
+    #method for adding album 
+    #prompts user to add information about album
+    #asks user to add tracks to the album
+    #then appends album to album collection, and notifies user of success
     def add_album(self):
         #Album information
         print("please enter Album information")
@@ -110,6 +114,8 @@ class Player:
 
     
     #method for deleting alubm 
+    #prompts user to select album for deletion
+    #if album does not exist, notify user
     def delete_album(self):
         #select album to delete
         print("\nSelect Album to be deleted")
