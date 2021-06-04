@@ -40,11 +40,9 @@ class Player:
             self.collection = pickle.load(file_in)
 
         
-<<<<<<< HEAD
+
     #method for writing data using pickle 
-=======
     #method for writing file with pickle, saves list of albums object
->>>>>>> my-comments
     def write_file(self):
 
         with open(self.file_name, 'wb') as file_out:
