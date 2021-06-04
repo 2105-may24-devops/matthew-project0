@@ -31,22 +31,25 @@ class Player:
         else:
             print("selection not recogized")
 
-    #method for reading data 
+    #method for reading data using pickle  
     def read_file(self):
         
         with open(self.file_name, 'rb') as file_in:
             self.collection = pickle.load(file_in)
 
         
-    #method for writing data 
+    #method for writing data using pickle 
     def write_file(self):
 
         with open(self.file_name, 'wb') as file_out:
             pickle.dump(self.collection, file_out)
 
         
-    #method for playing track 
+    '''
+        Method for playing the album selected by user 
+    '''
     def play(self):
+        #display prompt 
         print("\nPlease select an Album to play\n")
         #select album from collection
         album_index = self.select()
@@ -61,7 +64,9 @@ class Player:
             time.sleep(tracks.time)
 
     
-    #method for selecting album 
+    '''
+        Method for selecting an album to play 
+    '''
     def select(self):
         #dsplay albums for selection
         for album in self.collection:
@@ -76,7 +81,9 @@ class Player:
         return (selected - 1)
         
     
-    #method for adding album 
+    '''
+        Method for adding album to collection 
+    '''
     def add_album(self):
         #Album information
         print("please enter Album information")
@@ -112,7 +119,9 @@ class Player:
         except:
             print("Error album not found")
 
-
+'''
+    Album class definition, includes name of alubm, artist, and date released
+'''
 class Album:
 
     def __init__(self, title, artist, date) -> None:
