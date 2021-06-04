@@ -8,7 +8,9 @@ import time
 #seed for generating song lengths
 seed(1)
 
-#class for CD player 
+'''
+    This is a Class definition for the CD player interface
+'''
 class Player:
     #constructer 
     def __init__(self, name):
@@ -38,7 +40,7 @@ class Player:
             self.collection = pickle.load(file_in)
 
         
-    #method for writing data 
+    #method for writing file with pickle, saves list of albums object
     def write_file(self):
 
         with open(self.file_name, 'wb') as file_out:
@@ -126,7 +128,11 @@ class Album:
         self.tracks.append(new_track)
     
     
-# Tracks class
+'''
+    Class definition for Track objects
+    takes name of track 
+    and generates random number between 1 and 5 for song length
+'''
 class Tracks:
     #constructor
     def __init__(self, name) -> None:
