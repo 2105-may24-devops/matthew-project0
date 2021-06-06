@@ -3,7 +3,7 @@
 
 from data_collection_class import Data_collection_class
 from Classes import Player
-import file_setup
+import file_handler
 import blessed
 import time
 import sys
@@ -27,7 +27,7 @@ with term.cbreak():
 print(term.move_down(2) + 'You pressed ' + term.bold(repr(inp))) """
 
 #check to see if there is a music collection 
-file_checker = file_setup.File_setup('collection_file')
+file_checker = file_handler.File_setup('collection_file')
 file_checker.check_path_collection(0)
 
 #create player 
@@ -64,7 +64,7 @@ data_collection = Data_collection_class(total_time,
                                         player.number_deleted)
 
 #check if a log file exist 
-log_checker = file_setup.File_setup('project_0_logs')
+log_checker = file_handler.File_setup('project_0_logs')
 log_checker.check_path_collection(1)
 #generate report
 data_collection.open_report()
