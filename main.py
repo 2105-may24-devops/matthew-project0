@@ -25,47 +25,51 @@ with term.cbreak():
     inp = term.inkey()
 
 print(term.move_down(2) + 'You pressed ' + term.bold(repr(inp))) """
+def main():
+    #check to see if there is a music collection 
+    file_checker = file_handler.File_setup('collection_file')
+    file_checker.check_path_collection(0)
 
-#check to see if there is a music collection 
-file_checker = file_handler.File_setup('collection_file')
-file_checker.check_path_collection(0)
-
-#create player 
-player = Player('collection_file')
+    #create player 
+    player = Player('collection_file')
 
 
-#load current collection 
-player.read_file()
-#variable for selection 
-fin = 'y'
+    #load current collection 
+    player.read_file()
+    #variable for selection 
+    fin = 'y'
 
-while fin != 'n' and fin != 'N':
-    print("\nMusic player menu.\n")
-    print("Please select one of the following")
-    print("1) select album to play")
-    print("2) Add new album")
-    print("3) Delete Album")
-    print("x) to exit")
-    value = input("\nslection :")
-    player.menu(value)
+    while fin != 'n' and fin != 'N':
+        print("\nMusic player menu.\n")
+        print("Please select one of the following")
+        print("1) select album to play")
+        print("2) Add new album")
+        print("3) Delete Album")
+        print("x) to exit")
+        value = input("\nslection :")
+        player.menu(value)
 
-    fin = input('would you like to continue? (Y/N) :')
+        fin = input('would you like to continue? (Y/N) :')
 
-player.write_file()
+    player.write_file()
 
-print('\nCollection Saved.\nThank you for Listening!\n')
+    print('\nCollection Saved.\nThank you for Listening!\n')
 
-#time of program execution 
-total_time = time.time() - start_time
+    #time of program execution 
+    total_time = time.time() - start_time
 
-data_collection = Data_collection_class(total_time, 
+    data_collection = Data_collection_class(total_time, 
                                         len(player.collection), 
                                         player.number_added, 
                                         player.number_deleted)
 
-#check if a log file exist 
-log_checker = file_handler.File_setup('project_0_logs')
-log_checker.check_path_collection(1)
-#generate report
-data_collection.open_report()
-data_collection.calculate_average()
+    #check if a log file exist 
+    log_checker = file_handler.File_setup('project_0_logs')
+    log_checker.check_path_collection(1)
+    #generate report
+    data_collection.open_report()
+    data_collection.calculate_average()
+
+
+if __name__ == "__main__":
+    main()
