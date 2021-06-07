@@ -6,4 +6,5 @@ collection_file
 
 project_0_logs
 project_0_report.txt
-
+#ignore venv files
+venv/*
