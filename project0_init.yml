@@ -1,0 +1,31 @@
+---
+- name: test latest version
+  hosts: all
+  tasks:
+          - name: install python3-venv
+            package:
+                    name: python3-venv
+                    state: latest
+
+          - name: install git
+            package:
+                    name: git
+                    state: latest
+
+          - name: install python
+            package:
+                    name: python3
+                    state: latest
+
+
+          - name: clone repo
+            git:
+                    repo: 'https://github.com/2105-may24-devops/matthew-project0.git' 
+                    dest: ~/matthew-project0-production
+          - name: set up venv
+            command: python3 -m venv ~/matthew-project0-production/venv
+
+          - name: activate venv
+            shell: source ~/matthew-project0-production/venv/bin/activate  
+                
+        
