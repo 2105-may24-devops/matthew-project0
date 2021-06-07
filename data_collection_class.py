@@ -1,4 +1,4 @@
-import time 
+import datetime
 import pickle
 
 class Data_collection_class:
@@ -11,6 +11,7 @@ class Data_collection_class:
         self.report_file = 'project_0_report.txt'
         self.log_file = 'project_0_logs'
         self.log_data = []
+        self.today = datetime.date.today()
 
     #load log file 
     def open_report(self):
@@ -19,9 +20,9 @@ class Data_collection_class:
 
     #write files 
     def write_files(self, ave_albums, ave_added, ave_del, ave_time):
-
+        date = self.today.strftime('%Y - %m - %d') 
         with open(self.report_file, 'a+') as file_out:
-            file_out.write(f'Date : {time.gmtime()} \n\n')
+            file_out.write(f'Date : {date} \n\n')
             file_out.write(f'Average size of collection : {ave_albums}\n')
             file_out.write(f'Average albums added       : {ave_added}\n')
             file_out.write(f'Average albums deleted     : {ave_del}\n')
