@@ -1,14 +1,15 @@
 
 
 #This file is for testing project 0 
+pwd
 
 py_interpreter_before=$("python --version")
 
 #start venv
-source ~/matthew-project0-production/venv/bin/activate
+source ~/revature/matthew-project0/venv/bin/activate
 
 #verify python interpreter version 
-py_interpreter_after=$("python --verson")
+py_interpreter_after=$("python --version")
 
 if [[ $py_interpreter_before -ne $py_interpreter_after ]]; then
 	result="$py_interpreter_after : venv is correct"
