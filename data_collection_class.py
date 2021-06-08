@@ -8,8 +8,8 @@ class Data_collection_class:
         self.number_of_albums = collection_size
         self.number_added = number_added
         self.number_deleted = number_deleted
-        self.report_file = 'project_0_report.txt'
-        self.log_file = 'project_0_logs'
+        self.report_file = './project_data/project_0_report.txt'
+        self.log_file = './project_data/project_0_logs.txt'
         self.log_data = []
         self.today = datetime.date.today()
 

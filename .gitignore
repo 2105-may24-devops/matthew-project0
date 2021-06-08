@@ -2,9 +2,9 @@
 *.pyc
 
 #ignore files 
-collection_file
+collection_file.txt
 
-project_0_logs
+project_0_logs.txt
 project_0_report.txt
 #ignore venv files
 venv/*

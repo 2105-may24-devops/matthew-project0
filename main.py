@@ -13,11 +13,11 @@ start_time = time.time()
 
 def main():
     #check to see if there is a music collection 
-    file_checker = file_handler.File_setup('collection_file')
+    file_checker = file_handler.File_setup('collection_file.txt')
     file_checker.check_path_collection(0)
 
     #create player 
-    player = Player('collection_file')
+    player = Player('collection_file.txt')
 
 
     #load current collection 
@@ -50,12 +50,22 @@ def main():
                                         player.number_deleted)
 
     #check if a log file exist 
-    log_checker = file_handler.File_setup('project_0_logs')
+    log_checker = file_handler.File_setup('project_0_logs.txt')
     log_checker.check_path_collection(1)
     #generate report
     data_collection.open_report()
     data_collection.calculate_average()
 
+#non interative portion for testing purposes
+def non_main():
+    
+    file_checker = file_handler.File_setup(sys.argv[1])
+    file_checker.check_path_collection(sys.argv[2])
+
 
 if __name__ == "__main__":
-    main()
+    
+    if len(sys.argv) == 1:
+        main()
+    else:
+        non_main()

@@ -7,7 +7,8 @@ class File_setup:
     def __init__(self, file_name):
         self.path = Path('~/matthew-project0-production')
         self.file_name = file_name
-        self.target_path = self.path / self.file_name
+        self.dir_name = self.path / "project_data"
+        self.target_path = self.dir_name / self.file_name
         self.collection = []
         
     def write_file(self):
@@ -17,6 +18,15 @@ class File_setup:
         
     #check to see if music collection exists 
     def check_path_collection(self, option):
+        
+        #check if dir is present
+        check_dir = self.dir_name.exists()
+        
+        if (check_dir):
+            pass
+        else:
+            self.dir_name.mkdir()
+            
 
         check_path = self.target_path.resolve()
 
