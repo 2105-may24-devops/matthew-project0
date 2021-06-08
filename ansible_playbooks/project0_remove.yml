@@ -1,0 +1,10 @@
+---
+- name: delete application
+  hosts: all
+  tasks:
+          - name: remove app
+            ansible.builtin.file:
+                    path: ~/matthew-project0-production
+                    force: yes
+                    state: absent
+
