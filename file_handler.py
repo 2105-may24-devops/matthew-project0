@@ -7,7 +7,7 @@ class File_setup:
     def __init__(self, file_name):
         self.path = Path('.')
         self.file_name = file_name
-        self.dir_name = Path('~/matthew-project0-production/project_data')
+        self.dir_name = self.path / "project-data"
         self.target_path = self.dir_name / self.file_name
         self.collection = []
         
