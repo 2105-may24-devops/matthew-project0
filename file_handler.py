@@ -21,7 +21,7 @@ class File_setup:
         
         #check if dir is present
         
-        print(self.dir_name.exists()) 
+        
         if (self.dir_name.exists()):
             pass
         else:
