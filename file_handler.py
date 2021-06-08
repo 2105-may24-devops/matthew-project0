@@ -5,7 +5,7 @@ from Classes import Album, Tracks
 class File_setup:
 
     def __init__(self, file_name):
-        self.path = Path('.')
+        self.path = Path('~/matthew-project0-production')
         self.file_name = file_name
         self.target_path = self.path / self.file_name
         self.collection = []
