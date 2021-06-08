@@ -5,7 +5,7 @@ from Classes import Album, Tracks
 class File_setup:
 
     def __init__(self, file_name):
-        self.path = Path('~/matthew-project0-production')
+        self.path = Path('.')
         self.file_name = file_name
         self.dir_name = self.path / "project_data"
         self.target_path = self.dir_name / self.file_name
@@ -20,9 +20,9 @@ class File_setup:
     def check_path_collection(self, option):
         
         #check if dir is present
-        check_dir = self.dir_name.exists()
         
-        if (check_dir):
+        print(self.dir_name.exists()) 
+        if (self.dir_name.exists()):
             pass
         else:
             self.dir_name.mkdir()
