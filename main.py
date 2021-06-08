@@ -4,7 +4,6 @@
 from data_collection_class import Data_collection_class
 from Classes import Player
 import file_handler
-import blessed
 import time
 import sys
 
@@ -12,19 +11,6 @@ import sys
 start_time = time.time()
 
 
-
-""" term = blessed.Terminal()
-
-print(term.home + term.clear + term.move_y(term.height // 2))
-
-
-print(term.black_on_darkkhaki(term.center('Welcome to the music player interface') 
-                            + term.center('Press any key to continue')))
-
-with term.cbreak():
-    inp = term.inkey()
-
-print(term.move_down(2) + 'You pressed ' + term.bold(repr(inp))) """
 def main():
     #check to see if there is a music collection 
     file_checker = file_handler.File_setup('collection_file')
