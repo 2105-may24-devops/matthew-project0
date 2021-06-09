@@ -1,0 +1,7 @@
+---
+- name: project testing
+  hosts: all
+  task:
+          name: test componets
+          ansible.builtin.script:
+                  cmd: ~/matthew-project0-production/testing/testing/test_project0.sh

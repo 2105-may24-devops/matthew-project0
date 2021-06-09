@@ -1,21 +1,35 @@
-
-
-#This file is for testing project 0 
+#this file is for testing project 0
 pwd
 
-py_interpreter_before=$("python --version")
+ex_path=~/matthew-project0-production
+test_path=~/project-data
 
-#start venv
-source ~/revature/matthew-project0/venv/bin/activate
 
-#verify python interpreter version 
-py_interpreter_after=$("python --version")
+source "$ex_path/venv/bin/activate"
 
-if [[ $py_interpreter_before -ne $py_interpreter_after ]]; then
-	result="$py_interpreter_after : venv is correct"
-	echo $result
-else
-	result="Test 1 : Fail incorrect interpreter"
-	echo $result && exit 1
+if [[ -d $test_path ]] ; then
+	        echo "error dir already exist" > error_logs.txt
+	else
+		        echo "test passed "
+fi
+#run to see if dir and fies are created
+$ex_path/venv/bin/python3 $ex_path/main.py collection_file.txt 0
+
+if [[ -d $test_path ]] ; then
+	        echo "test passed dir created in correct location"
+	else
+		        echo "test failed: dir not created" >> error_logs.txt
+fi
+
+if [[ -e "$test_path/collection_file.txt" ]] ; then
+	        echo "test passed: default collection created"
+	else
+		        echo "test failed: default collection not created"
+fi
+
+if [[ -e "$test_path/project_0_*" ]] ; then
+	        echo "test passed: default aren't pressent"
+	else
+		        echo "test fail: default are present"
 fi
 
