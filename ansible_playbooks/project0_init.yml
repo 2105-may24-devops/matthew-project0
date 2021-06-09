@@ -4,19 +4,19 @@
   vars: 
         app_path: ~/matthew-project0-production
   tasks:
-          - name: install python3-venv
-            package:
-                    name: python3-venv
+          - name: install python3
+            ansible.builtin.package:
+                    name: python3
                     state: latest
 
           - name: install git
-            package:
+            ansible.builtin.package:
                     name: git
                     state: latest
 
-          - name: install python
-            package:
-                    name: python3
+          - name: install python-venv
+            ansible.builtin.package:
+                    name: python3-venv
                     state: latest
 
 
@@ -26,15 +26,16 @@
                     dest: '{{ app_path }}' 
           
 
-          - name: venv setup 
+          - name: venv setup
             command: python3 -m venv '{{ app_path }}/venv'
 
-
-          - name: resolve dependences
+          - name: requirements
             pip:
-                    
-                    requirements: '{{ app_path }}/requirements.txt'
+                    requirements: '{{ app_path }}/requirements.txt' 
+                           
 
+
+          
           
                         
         

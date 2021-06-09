@@ -1,7 +1,32 @@
 ---
 - name: project testing
   hosts: all
-  task:
-          name: test componets
-          ansible.builtin.script:
-                  cmd: ~/matthew-project0-production/testing/testing/test_project0.sh
+  vars:
+          ex_path: ~/matthew-project0-production/testing
+  tasks:
+  
+          - name: change file permissions
+            ansible.builtin.file:
+                    path: ~/matthew-project0-production/testing/test_project0.sh
+                    mode: '777'
+          - name: change file permissions
+            ansible.builtin.file:
+                    path: '{{ ex_path }}/test2_project0.sh'
+                    mode: '777'
+          - name: change file permissions
+            ansible.builtin.file:
+                    path: '{{ ex_path }}/test3_project0.sh'
+                    mode: '777'
+
+          - name: test1
+            shell: '{{ ex_path }}/test_project0.sh > test_log.txt'
+
+          - name: test2
+            shell: '{{ ex_path }}/test2_project0.sh > test_log.txt'
+          - name: test3
+            shell: '{{ ex_path }}/test3_project0.sh > test_log.txt'
+            
+
+
+      
+

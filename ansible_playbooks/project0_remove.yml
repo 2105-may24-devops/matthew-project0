@@ -12,3 +12,11 @@
                     path: ~/project-data
                     force: yes
                     state: absent
+          - name: remove logs
+            ansible.builtin.file:
+                    path: ~/test_log.txt
+                    state: absent
+          - name: remove logs
+            ansible.builtin.file:
+                    path: ~/error_logs.txt
+                    state: absent
