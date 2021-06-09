@@ -3,7 +3,7 @@ ex_path=~/matthew-project0-production
 test_path=~/project-data
 
 
-$ex_path/venv/bin/python3 $ex_path/main.py collection.txt 0
+$ex_path/venv/bin/python3 $ex_path/main.py collection_file.txt 0
 
 #test2 create /project-data/
 if [[ -d $test_path ]] ; then

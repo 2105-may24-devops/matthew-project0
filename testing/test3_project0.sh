@@ -7,7 +7,7 @@ test_path=~/project-data
 source "$ex_path/venv/bin/activate"
 
 #run non interative program 
-$ex_path/venv/bin/python3 $ex_path/main.py collection.txt 0
+$ex_path/venv/bin/python3 $ex_path/main.py collection_file.txt 0
 
 #test3 check if collection_file.txt is created
 if [[ -e "$test_path/collection_file.txt" ]] ; then
