@@ -14,7 +14,7 @@ seed(1)
 class Player:
     #constructor 
     def __init__(self, name):
-        self.file_name = f'./project_data/{name}'
+        self.file_name = f'./project-data/{name}'
         self.collection = []
         
         self.number_added = 0 
