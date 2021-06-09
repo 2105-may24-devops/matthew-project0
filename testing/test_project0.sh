@@ -16,15 +16,5 @@ if [[ -d $test_path ]] ; then
 		echo "test 1: pass "
 	
 fi
-#run non interative program 
-$ex_path/venv/bin/python3 $ex_path/main.py collection.txt 0
-
-#test3 check if collection_file.txt is created
-if [[ -e "$test_path/collection_file.txt" ]] ; then
-	echo "test3: passed file created"
-else
-	echo "error: test3 failed" >> error_logs.txt && exit 1
-fi 
-
 exit 0 
 
