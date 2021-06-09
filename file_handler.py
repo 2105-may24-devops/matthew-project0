@@ -6,9 +6,10 @@ class File_setup:
 
     def __init__(self, file_name):
         self.path = Path('.')
+        self.path.resolve()
         self.file_name = file_name
         self.dir_name = self.path / "project-data"
-        self.target_path = self.path / self.file_name
+        self.target_path = self.dir_name / self.file_name
         self.collection = []
         
     def write_file(self):
@@ -20,7 +21,7 @@ class File_setup:
     def check_path_collection(self, option):
         
         #check if dir is present
-        print(self.dir_name)
+        
         
         if (self.dir_name.exists()):
             pass
