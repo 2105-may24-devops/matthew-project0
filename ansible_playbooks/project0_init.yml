@@ -29,9 +29,7 @@
           - name: venv setup
             command: python3 -m venv '{{ app_path }}/venv'
 
-          - name: requirements
-            pip:
-                    requirements: '{{ app_path }}/requirements.txt' 
+          
                            
 
 
