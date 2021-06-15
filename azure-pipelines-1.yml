@@ -13,10 +13,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: |
@@ -44,10 +41,11 @@ steps:
     playbookPathOnAgentMachine: './ansible_playbooks/project0_init.yml'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: './ansible_playbooks/inventory'
-
+  displayName: 'ansible init'
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
     playbookPathOnAgentMachine: './ansible_playbooks/project0_remove.yml'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: './ansible_playbooks/inventory'''
+  displayName: 'ansible remove'
