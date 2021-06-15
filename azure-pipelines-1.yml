@@ -4,6 +4,7 @@
     ansibleInterface: 'agentMachine'
     playbookPathOnAgentMachine: './ansible-playbook/project0_init.yml'
     inventoriesAgentMachine: 'noInventory'
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
