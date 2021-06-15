@@ -49,6 +49,7 @@ steps:
     playbookPathOnAgentMachine: './ansible_playbooks/project0_test.yml'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: './ansible_playbooks/inventory'
+  displayName: 'ansible test'
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
