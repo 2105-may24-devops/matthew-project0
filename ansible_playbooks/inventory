@@ -5,6 +5,9 @@
 13.84.166.27 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
 13.66.8.112 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
 
+
+[py3_hosts:vars]
+ansible_python_interpreter=/usr/bin/python3
 # This is the default ansible 'hosts' file.
 #
 # It should live in /etc/ansible/hosts
