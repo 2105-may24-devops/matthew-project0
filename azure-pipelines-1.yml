@@ -39,7 +39,6 @@ steps:
   inputs:
     ansibleInterface: 'agentMachine'
     playbookPathOnAgentMachine: './ansible_playbooks/project0_init.yml'
-    failOnStdErr: false
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: './ansible_playbooks/inventory'
   displayName: 'ansible init'
