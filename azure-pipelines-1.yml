@@ -1,13 +1,53 @@
 trigger:
 - nick-demo
 
+# "trigger" is pipeline-level config
+# "pool" and "steps" are configs of a job
+
 pool:
   vmImage: ubuntu-latest
 
+# every pipeline has at least one stage
+# (if you leave it out, you get one by default, called "build")
+# every stage has at least one job
+# (if you leave it out, you get one by default, called "build")
+
+# azure pipelines controls "build agents"
+# we can't schedule an individual step to be run,
+# only a whole job at a time is scheduled on a particular build agent.
+# the "pool" config is one way to tell azure pipelines where that agent is.
+# "agent pools" exist at the project level, are groups of agents
+
+# basic choice with pipelines is:
+# microsoft-hosted agent, or self-hosted agent.
+# self-hosted pros:
+# pre-install all build dependencies, let your pipeline just assume they are there
+# to make it faster
+# even if your pipeline still checks, still probably WAY faster
+# `you can cache the results of previous builds
+# self-hosted cons:
+# each build is potentially less guaranteed to be isolated/repeatable/not broken
+# like choosing between IaaS and PaaS - you have to maintain OS updates, etc yourself
+
+# each step runs in sequence in the same clone of the repository
 steps:
+# script steps take the value of the 'script' key
+# upload it to the build agent as a .sh file
+# (on Linux, with bash... on Windows it'll be either cmd or powershell)
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+# be careful of multiline scripts -
+# just like in a regular bash script, any nonzero exit
+# before the last command is ignored
+# if you don't want that:
+# either just split it up into multiple one-line script steps, or
+# bash has commands "set -e" (and "set -o pipefail") you can put at the
+# top of your script
+- script: |
+    echo Hello, world! || echo &>2 'error'
+    echo Hello, world 2!
+  displayName: 'Run a multiline script'
 
 - task: InstallSSHKey@0
   inputs:
