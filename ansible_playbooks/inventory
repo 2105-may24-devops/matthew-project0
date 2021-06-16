@@ -1,9 +1,9 @@
 #revature virtual machines
 [ansible_client]
-20.97.12.217 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
-104.215.72.107 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
-13.84.166.27 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
-13.66.8.112 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
+vm2 20.97.12.217 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
+vm3 104.215.72.107 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
+vm4 13.84.166.27 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
+vm5 13.66.8.112 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
 
 
 [ansible_client:vars]
