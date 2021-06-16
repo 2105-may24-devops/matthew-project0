@@ -1,5 +1,5 @@
 trigger:
-- master
+- nick-demo
 
 pool:
   vmImage: ubuntu-latest
