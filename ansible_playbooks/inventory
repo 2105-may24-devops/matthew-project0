@@ -6,5 +6,5 @@
 13.66.8.112 ansible_private_key_file=~/.ssh/2105-may24-devops-ubuntu-vm-1_key.pem ansible_user=matthew
 
 
-[py3_hosts:vars]
+[ansible_client:vars]
 ansible_python_interpreter=/usr/bin/python3
